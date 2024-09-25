@@ -21,7 +21,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           aws-region: ${{ vars.AWS_REGION }}
-            # CloudFormation Lint
+      # CloudFormation Lint
       - name: Cfn Lint
         id: cfn-lint
         uses: scottbrenner/cfn-lint-action@v2
@@ -55,6 +55,8 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
         with:
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          aws-region: ${{ vars.AWS_REGION }}
           mask-password: 'true'
 
       - name: Detect Dockerfile changes
