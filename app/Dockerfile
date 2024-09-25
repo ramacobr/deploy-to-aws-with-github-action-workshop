@@ -1,4 +1,4 @@
-FROM public.ecr.aws/nginx/nginx:mainline
+FROM alpine
 EXPOSE 80
 COPY src/index.html /usr/share/nginx/html
 
